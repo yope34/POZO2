@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>El Pozito-Carta</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="/Proyecto Web/Proyecto Web/Estilos/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <link rel="stylesheet" type="text/css" href="/Proyecto Web/Proyecto Web/Estilos/estilosCarta.css">
+
+    <link href="https://fonts.cdnfonts.com/css/noticia-text?styles=19750,19747" rel="stylesheet">
+
+    <link href="https://fonts.cdnfonts.com/css/great-vibes" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body>
+
+
+    <div class="container-xxl text-center bg-white">
+        <div class="row mb-3 mt-5 p-4">
+            <div class="col mt-4">
+                <img src="/Proyecto Web/Proyecto Web/Images/icon-carta.png" class="img-fluid mb-2 mt-5" />
+                <h1 class="text-center mb-2">NUESTRA CARTA</h1>
+                <img src="/Proyecto Web/Proyecto Web/Images/divider.png" class="img-fluid mb-4" />
+            </div>
+        </div>
+        <div class="row mb-4">
+            <h2>Nuestros vinos mas vendidos:</h2>
+            <div class="col-12 col-md-6 col-md-6 col-lg-4 col-xl-4 col-xxl mb-2 mt-3">
+                <div class="borde-columna">
+                    <img src="/Proyecto Web/Proyecto Web/Images/image1-carta.png" class="img-fluid mb-4" />
+                    <p>Cibeles Crianza 2019</P>
+                    <p>S/.39.90</p>
+                    <button class="boton-carta"
+                        onclick="agregarCarrito('Cibeles Crianza 2019',39.90,'image1-carta.png')">
+                        <i class="fa-solid fa-cart-shopping fa-md" style="color: #ffffff;"></i>
+                        &nbsp; Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-md-6 col-lg-4 col-xl-4 col-xxl mb-2 mt-3">
+                <div class="borde-columna">
+                    <img src="/Proyecto Web/Proyecto Web/Images/image2-carta.png" class="img-fluid mb-4" />
+                    <p>Mira Salinas 2016</P>
+                    <p>S/.54.90</p>
+                    <button class="boton-carta" onclick="agregarCarrito('Mira Salinas 2016',54.90,'image2-carta.png')">
+                        <i class="fa-solid fa-cart-shopping fa-md" style="color: #ffffff;"></i>
+                        &nbsp; Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-md-6 col-lg-4 col-xl-4 col-xxl mb-2 mt-3">
+                <div class="borde-columna">
+                    <img src="/Proyecto Web/Proyecto Web/Images/image3-carta.png" class="img-fluid mb-4" />
+                    <p>Toro Centenario Chardonnay 2021</p>
+                    <p>S/.63.90</p>
+                    <button class="boton-carta"
+                        onclick="agregarCarrito('Toro Centenario Chardonnay 2021',63.90,'image3-carta.png')">
+                        <i class="fa-solid fa-cart-shopping fa-md" style="color: #ffffff;"></i>
+                        &nbsp; Añadir al carrito</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-md-6 col-lg-4 col-xl-4 col-xxl mb-2 mt-3">
+                <div class="borde-columna">
+                    <img src="/Proyecto Web/Proyecto Web/Images/image4-carta.png" class="img-fluid mb-4" />
+                    <p>Marques de Riscal Blanco Verdejo</p>
+                    <p>S/.187.90</p>
+                    <button class="boton-carta"
+                        onclick="agregarCarrito('Marques de Riscal Blanco Verdejo',187.90,'image4-carta.png')">
+                        <i class="fa-solid fa-cart-shopping fa-md" style="color: #ffffff;"></i>
+                        &nbsp; Añadir al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mensaje-container" class="mensaje-container"></div>
+    <div class="barra">
+        <p>Contactanos 1-(51)-724-9134
+            &nbsp; &nbsp; &nbsp; &nbsp;</p>
+        <p id="admin">Administracion@pozito.pe</p>
+        <div class="icons">
+            <a href="https://www.facebook.com/licoreriaelpozito/?locale=es_LA" class="fa-brands fa-facebook-f fa-lg"></a>    
+            <a href="https://www.instagram.com/licoreriaelpozito/?hl=es" class="fa-brands fa-instagram fa-lg"></a>    
+            <a href="https://twitter.com/elpozito1?lang=es" class="fa-brands fa-twitter fa-lg"></a>
+        </div>
+    </div>
+    <header id="header" class="sub-barra">
+        <input type="checkbox" id="check">
+        <label for="check" class="mostrar-menu">
+            &#8801
+        </label>
+        <nav class="menu">
+            <a id="inicio" href="/Proyecto Web/Proyecto Web/html/index.html">INICIO</a>
+            <a href="/Proyecto Web/Proyecto Web/html/historia.html">NUESTRA HISTORIA</a>
+            <a href="/Proyecto Web/Proyecto Web/html/galeria.html">GALERIA</a>
+            <a href="/Proyecto Web/Proyecto Web/html/ubicacion.html">UBICANOS</a>
+            <a href="/Proyecto Web/Proyecto Web/html/Contactanos.html">CONTACTANOS</a>
+            <div class="items" id="itemsjs">
+                <a href="/Proyecto Web/Proyecto Web/html/carta.html">CARTA</a>
+                <a href="/Proyecto Web/Proyecto Web/html/carrito.html">
+                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                </a>
+            </div>
+        </nav>
+        
+
+
+        <!-- REGISTER TIENE SU METODO DE .CSS-->
+        <nav class="menureg">
+            <a class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">REGISTRARSE</a>
+            </a>
+        </nav>
+
+        <!-- LOGIN TIENE SU METODO DE .CSS-->
+        <nav class="menulog">
+            <a class="nav-item mr-2">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">INICIAR SESION</a>
+            </a>
+        </nav>
+
+        <!-- LOGOUT TIENE SU METODO DE .CSS-->
+        <nav class="menuout">
+            <a class="nav-item mr-2">
+                <a class="nav-link" href="#" id="logout">SALIR</a>
+            </a>
+        </nav>
+
+        <!------------------------------------------------------------------------------>
+        <a id="log" href="/Proyecto Web/Proyecto Web/html/index.html" style="margin-right: 250px;">
+            <img id="logo" src="/Proyecto Web/Proyecto Web/Images/logo-pozito.png" class="imagen-logo">
+        </a>
+    </header>
+
+    <script>
+        function agregarCarrito(nombre, precio, imagen) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.push({ nombre, precio, imagen });;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarMensaje('Producto agregado al carrito');
+        }
+        function mostrarMensaje(mensaje) {
+            let mensajeContainer = document.getElementById('mensaje-container');
+            mensajeContainer.innerHTML = `<p>${mensaje}</p>`;
+            mensajeContainer.style.display = 'block';
+
+            // Ocultar el mensaje después de 10 segundos
+            setTimeout(() => {
+                mensajeContainer.style.display = 'none';
+            }, 1000); // 10000 milisegundos = 10 segundos
+        }
+    </script>
+
+</body>
+
+</html>

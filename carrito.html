@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>El Pozito - Carrito </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/Proyecto Web/Proyecto Web/Estilos/styles.css">
+    <link rel="stylesheet" type="text/css" href="/Proyecto Web/Proyecto Web/Estilos/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/Proyecto Web/Proyecto Web/Estilos/images.css">
+    <link href="https://fonts.cdnfonts.com/css/noticia-text?styles=19750,19747" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/great-vibes" rel="stylesheet">
+    <link href="https://fonts.google.com/specimen/Noticia+Text" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="barra">
+        <p>Contactanos 1-(51)-724-9134
+            &nbsp; &nbsp; &nbsp; &nbsp;</p>
+        <p id="admin">Administracion@pozito.pe</p>
+        <div class="icons">
+            <a href="https://www.facebook.com/licoreriaelpozito/?locale=es_LA" class="fa-brands fa-facebook-f fa-lg"></a>    
+            <a href="https://www.instagram.com/licoreriaelpozito/?hl=es" class="fa-brands fa-instagram fa-lg"></a>    
+            <a href="https://twitter.com/elpozito1?lang=es" class="fa-brands fa-twitter fa-lg"></a>
+        </div>
+    </div>
+    <header id="header" class="sub-barra">
+        <input type="checkbox" id="check">
+        <label for="check" class="mostrar-menu">
+            &#8801
+        </label>
+        <nav class="menu">
+            <a id="inicio" href="/Proyecto Web/Proyecto Web/html/index.html">INICIO</a>
+            <a href="/Proyecto Web/Proyecto Web/html/historia.html">NUESTRA HISTORIA</a>
+            <a href="/Proyecto Web/Proyecto Web/html/galeria.html">GALERIA</a>
+            <a href="/Proyecto Web/Proyecto Web/html/ubicacion.html">UBICANOS</a>
+            <a href="/Proyecto Web/Proyecto Web/html/Contactanos.html">CONTACTANOS</a>
+            <div class="items" id="itemsjs">
+                <a href="/Proyecto Web/Proyecto Web/html/carta.html">CARTA</a>
+                <a href="/Proyecto Web/Proyecto Web/html/carrito.html">
+                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                </a>
+            </div>
+        </nav>
+        
+
+
+        <!-- REGISTER TIENE SU METODO DE .CSS-->
+        <nav class="menureg">
+            <a class="nav-item">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signupModal">REGISTRARSE</a>
+            </a>
+        </nav>
+
+        <!-- LOGIN TIENE SU METODO DE .CSS-->
+        <nav class="menulog">
+            <a class="nav-item mr-2">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#signinModal">INICIAR SESION</a>
+            </a>
+        </nav>
+
+        <!-- LOGOUT TIENE SU METODO DE .CSS-->
+        <nav class="menuout">
+            <a class="nav-item mr-2">
+                <a class="nav-link" href="#" id="logout">SALIR</a>
+            </a>
+        </nav>
+
+        <!------------------------------------------------------------------------------>
+        <a id="log" href="/Proyecto Web/Proyecto Web/html/index.html" style="margin-right: 250px;">
+            <img id="logo" src="/Proyecto Web/Proyecto Web/Images/logo-pozito.png" class="imagen-logo">
+        </a>
+    </header>
+
+    <main>
+        <section class="cart">
+            <h1 class="carro-titulo" style="color: #F1A81A;font-size: 65px; position: absolute;">Carrito</h1>
+            <ul id="lista-carrito"></ul>
+            <div id="total-precio" style="font-weight: bold; margin-top: 10px;"></div>
+            <button onclick="mostrarResumenCompra()" class="comprar-btn">Comprar</button>
+        </section>
+
+        <div id="resumen-modal">
+            <div id="resumen-contenido">
+                <span id="cerrar-modal" onclick="cerrarResumenModal()">&times;</span>
+                <h2>Resumen de la Compra</h2>
+                <ul id="lista-resumen">
+                    <!-- Aquí se mostrarán los productos y sus precios -->
+                </ul>
+                <p>Total a pagar: <span id="total-pagar">S/. 0.00</span></p>
+                <button onclick="aceptarCompra()">Aceptar</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', mostrarCarrito);
+
+        function mostrarCarrito() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            let listaCarrito = document.getElementById('lista-carrito');
+
+            listaCarrito.innerHTML = '';
+
+            carrito.forEach((producto, index) => {
+                let li = document.createElement('li');
+                li.style.listStyle = 'none';  // Eliminar el punto de enumeración
+                li.className = 'carrito-item';
+
+                // Crear la imagen del producto
+                let img = document.createElement('img');
+                img.src = `/Proyecto Web/Proyecto Web/Images/${producto.imagen}`; // Ajusta la ruta de acuerdo a tu estructura de carpetas
+                img.alt = producto.nombre;
+                img.className = 'carrito-imagen';
+
+                // Agregar la imagen al elemento <li>
+                li.appendChild(img);
+
+                // Agregar el texto con el nombre y precio del producto
+                let texto = document.createTextNode(`${producto.nombre} - $${producto.precio}`);
+                texto.className = 'carrito-texto';
+
+                // Botón para borrar el producto del carrito
+                let botonBorrar = document.createElement('button');
+                botonBorrar.textContent = 'Borrar';
+                botonBorrar.addEventListener('click', () => {
+                    borrarProducto(index);
+                });
+                // Agregar elementos al <li>
+                li.appendChild(img);
+                li.appendChild(texto);
+                li.appendChild(botonBorrar);
+
+                // Agregar el <li> a la lista
+                listaCarrito.appendChild(li);
+            });
+        }
+
+
+        function borrarProducto(index) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.splice(index, 1);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            mostrarCarrito();
+        }
+
+        // Función para completar la compra y variar el carrito
+        function completarCompra() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            if (carrito.length === 0) {
+                alert('El carrito está vacío. Agrega productos antes de comprar.');
+            } else {
+                // Puedes agregar lógica adicional aquí para procesar la compra
+                alert('¡Compra completada con éxito! Gracias por su compra.');
+                localStorage.removeItem('carrito'); // Vaciar el carrito
+                mostrarCarrito(); // Actualizar la lista del carrito (se mostrará vacía)
+            }
+        }
+        function mostrarResumenCompra() {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            if (carrito.length === 0) {
+                alert('El carrito está vacío. Agrega productos antes de comprar.');
+            } else {
+                let resumenModal = document.getElementById('resumen-modal');
+                let listaResumen = document.getElementById('lista-resumen');
+                let totalPagar = document.getElementById('total-pagar');
+
+                // Limpiar contenido anterior
+                listaResumen.innerHTML = '';
+
+                // Calcular el total y mostrar cada producto en el resumen
+                let total = 0;
+                carrito.forEach((producto) => {
+                    let li = document.createElement('li');
+                    let texto = document.createTextNode(`${producto.nombre} - $${producto.precio.toFixed(2)}`);
+                    li.appendChild(texto);
+                    listaResumen.appendChild(li);
+                    total += producto.precio;
+                });
+
+                // Mostrar el total a pagar
+                totalPagar.textContent = `S/. ${total.toFixed(2)}`;
+
+                // Mostrar el modal del resumen de la compra
+                resumenModal.style.display = 'flex';
+            }
+        }
+
+        function aceptarCompra() {
+            // Puedes agregar lógica adicional aquí para procesar la compra
+            alert('¡Compra completada con éxito! Gracias por su compra.');
+            localStorage.removeItem('carrito'); // Vaciar el carrito
+            mostrarCarrito(); // Actualizar la lista del carrito (se mostrará vacía)
+            // Ocultar el contenedor de resumen de compra
+            cerrarResumenModal();
+        }
+        function cerrarResumenModal() {
+            document.getElementById('resumen-modal').style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

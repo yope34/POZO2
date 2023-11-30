@@ -1,0 +1,86 @@
+.ubicacion-titulo{
+    top: 150px;
+    left: 10%;
+    
+}
+
+.carro-titulo{
+    top: 120px;
+    left: 10%;
+    
+}
+
+.titulo-contacto {
+    top: 230px;
+    left: 40%;
+}
+
+.titulo{
+    top: 5px;
+}
+
+h1 {
+    font-weight: normal;
+    font-family: 'Great Vibes', sans-serif;
+    color:white;
+}
+
+h2 {
+    position: absolute;
+    font-weight: normal;
+    font-family: 'Great Vibes', sans-serif;
+    font-size: 75px;
+}
+
+h3 {
+    font-family: 'Noticia Text', sans-serif;   
+    color:#212121;
+    opacity: 0.75;
+    font-size: 33px;
+}
+
+p{
+    font-family: 'Noticia Text';   
+}
+
+.texto-cuenta {
+    position: absolute;
+    font-family: grandstander;
+    color: #fbb51d;
+    top: 30%;
+    left: 30%;
+    font-size: 45px;
+    line-height: 20px;
+    letter-spacing: 5%;
+    list-style-type: none;
+}
+
+.datos-contacto {
+    position: absolute;
+    top: 35%;
+    left: 60%;
+    font-weight: lighter;
+    font-family: 'Noticia Text';
+    color: #F1A81A;
+    font-size: 40px;
+}
+
+.numero-contacto {
+    position: absolute;
+    top: 50%;
+    left: 63%;
+    font-weight: lighter;
+    font-family: 'Noticia Text';
+    color: white;
+    font-size: 25px;
+}
+
+.horario-contacto {
+    position: absolute;
+    top: 63%;
+    left: 63%;
+    font-weight: lighter;
+    font-family: 'Noticia Text';
+    color: white;
+    font-size: 25px;
+}
